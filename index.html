@@ -15,6 +15,7 @@
       --line:rgba(255,255,255,.08);
       --shadow:0 24px 60px rgba(0,0,0,.45);
       --r:22px;
+      --green:#35ff7a;
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg)}
@@ -34,14 +35,32 @@
       padding:14px 0;
       gap:16px;
     }
-    .brand{display:flex;align-items:center;gap:12px;min-width:220px}
+
+    /* ===== BRAND TOP ===== */
+    .brand{display:flex;align-items:center;gap:12px;min-width:260px}
     .logo{
       width:40px;height:40px;border-radius:14px;
       background:linear-gradient(135deg, rgba(125,211,252,1), rgba(167,139,250,1));
       box-shadow:0 18px 40px rgba(125,211,252,.15);
+      flex:0 0 auto;
     }
-    .brand strong{font-size:14px}
-    .brand span{display:block;font-size:12px;color:var(--muted)}
+
+    .brand-name{
+      font-size:14px;
+      font-weight:800;
+      line-height:1.1;
+      margin:0;
+    }
+
+    .brand-sub{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin-top:2px;
+    }
+
+    /* vert pour F L T */
+    .g{color:var(--green);font-weight:900}
 
     /* MENU */
     .menu{
@@ -125,8 +144,28 @@
       padding:28px;
     }
 
-    h1{margin:0 0 10px;font-size:44px;letter-spacing:-.8px;line-height:1.05}
-    .lead{color:var(--muted);line-height:1.7;font-size:16px;margin:0 0 18px}
+    /* ===== TITRE HERO ===== */
+    .brand-title{
+      margin:0 0 10px;
+      font-size:44px;
+      letter-spacing:-.8px;
+      line-height:1.05;
+    }
+
+    .slogan{
+      margin:0 0 16px;
+      color:var(--green);
+      font-weight:700;
+      font-size:16px;
+      letter-spacing:0.3px;
+    }
+
+    .lead{
+      color:var(--muted);
+      line-height:1.7;
+      font-size:16px;
+      margin:0 0 18px
+    }
 
     .btns{display:flex;gap:10px;flex-wrap:wrap}
     .btn{
@@ -140,14 +179,15 @@
       border-color:transparent;
       background:linear-gradient(135deg, rgba(125,211,252,1), rgba(167,139,250,1));
       color:#081021;
-      font-weight:700;
+      font-weight:800;
     }
 
-    /* ===== VIDEO HERO (remplace l'animation) ===== */
+    /* ===== VIDEO HERO ===== */
     .hero-video{
       position: relative;
       overflow: hidden;
       min-height: 320px;
+      padding:0;
     }
 
     .hero-video video{
@@ -198,8 +238,12 @@
       <a class="brand" href="index.html">
         <div class="logo" aria-hidden="true"></div>
         <div>
-          <strong>Fiberlink Technology</strong>
-          <span>Réseaux • Fibre optique • Technologies</span>
+          <div class="brand-name">
+            <span class="g">F</span>iber
+            <span class="g">L</span>ink
+            <span class="g">T</span>echnology
+          </div>
+          <span class="brand-sub">Réseaux • Fibre optique • Technologies</span>
         </div>
       </a>
 
@@ -225,8 +269,16 @@
 <main>
   <div class="wrap">
     <section class="hero">
+
       <div class="card">
-        <h1>Fiberlink Technology</h1>
+        <h1 class="brand-title">
+          <span class="g">F</span>iber
+          <span class="g">L</span>ink
+          <span class="g">T</span>echnology
+        </h1>
+
+        <p class="slogan">Think Fast, Link Smart</p>
+
         <p class="lead">
           Spécialiste des solutions réseau et fibre optique.
           Un site moderne, rapide et professionnel — prêt à évoluer.
