@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fiberlink Technology</title>
-  <meta name="description" content="Fiberlink Technology — Réseaux, Fibre optique, Technologies" />
+  <meta name="description" content="Fiberlink Technology — Solutions Fibre Optique & Réseaux." />
 
   <style>
     :root{
@@ -17,17 +17,27 @@
       --r:22px;
       --green:#35ff7a;
     }
+
     *{box-sizing:border-box}
-    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg)}
+    body{
+      margin:0;
+      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      background:var(--bg);
+    }
     a{color:inherit;text-decoration:none}
     .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
 
+    /* ===== HEADER ===== */
     header{
-      position:sticky;top:0;z-index:50;
+      position:sticky;
+      top:0;
+      z-index:50;
       backdrop-filter:blur(14px);
       background:rgba(7,10,18,.65);
       border-bottom:1px solid var(--line);
     }
+
     .nav{
       display:flex;
       align-items:center;
@@ -36,10 +46,17 @@
       gap:16px;
     }
 
-    /* ===== BRAND TOP ===== */
-    .brand{display:flex;align-items:center;gap:12px;min-width:260px}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:260px;
+    }
+
     .logo{
-      width:40px;height:40px;border-radius:14px;
+      width:40px;
+      height:40px;
+      border-radius:14px;
       background:linear-gradient(135deg, rgba(125,211,252,1), rgba(167,139,250,1));
       box-shadow:0 18px 40px rgba(125,211,252,.15);
       flex:0 0 auto;
@@ -59,10 +76,8 @@
       margin-top:2px;
     }
 
-    /* vert pour F L T */
     .g{color:var(--green);font-weight:900}
 
-    /* MENU */
     .menu{
       display:flex;
       gap:10px;
@@ -71,7 +86,6 @@
       justify-content:flex-end;
     }
 
-    /* même taille pour TOUS */
     .menu > a,
     .menu > .dropdown > button{
       height:42px;
@@ -95,7 +109,7 @@
       background:rgba(255,255,255,.03);
     }
 
-    /* DROPDOWN */
+    /* ===== DROPDOWN ===== */
     .dropdown{position:relative}
     .caret{opacity:.75}
 
@@ -119,114 +133,112 @@
       color:var(--muted);
       font-size:13px;
     }
+
     .dropdown-menu a:hover{
       color:var(--text);
-      background:rgba(255,255,255,.04)
+      background:rgba(255,255,255,.04);
     }
 
     .dropdown:hover .dropdown-menu{display:block}
+    .dropdown.open .dropdown-menu{display:block}
 
-    main{padding:40px 0 60px}
+    /* ===== MAIN ===== */
+    main{padding:38px 0 60px}
 
-    /* HERO en vertical */
-    .hero{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:18px;
-      align-items:stretch;
-    }
-
-    .card{
-      border-radius:var(--r);
-      border:1px solid var(--line);
-      background:rgba(12,16,32,.55);
-      box-shadow:var(--shadow);
-      padding:28px;
-    }
-
-    /* ===== TITRE HERO ===== */
-    .brand-title{
-      margin:0 0 10px;
-      font-size:44px;
-      letter-spacing:-.8px;
-      line-height:1.05;
-    }
-
-    .slogan{
-      margin:0 0 16px;
-      color:var(--green);
-      font-weight:700;
-      font-size:16px;
-      letter-spacing:0.3px;
-    }
-
-    .lead{
-      color:var(--muted);
-      line-height:1.7;
-      font-size:16px;
-      margin:0 0 18px
-    }
-
-    .btns{display:flex;gap:10px;flex-wrap:wrap}
-    .btn{
-      padding:12px 14px;border-radius:16px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-      color:var(--text);font-size:13px;
-    }
-    .btn:hover{background:rgba(255,255,255,.06)}
-    .btn.primary{
-      border-color:transparent;
-      background:linear-gradient(135deg, rgba(125,211,252,1), rgba(167,139,250,1));
-      color:#081021;
-      font-weight:800;
-    }
-
-    /* ===== VIDEO HERO ===== */
+    /* ===== HERO VIDEO (TAILLE ORIGINE) ===== */
     .hero-video{
-      position: relative;
-      overflow: hidden;
-      min-height: 320px;
-      padding:0;
+      position:relative;
+      overflow:hidden;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 24px 60px rgba(0,0,0,.45);
+      background:#000;
     }
 
+    /* IMPORTANT : taille d'origine */
     .hero-video video{
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.35;
-      transform: scale(1.02);
+      display:block;
+      width:auto;
+      height:auto;
+      max-width:100%;
+      max-height:520px;
+      margin:0 auto;
+      opacity:0.55;
     }
 
     .hero-overlay{
-      position: relative;
-      z-index: 2;
-      height: 100%;
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-start;
-      padding: 18px;
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:flex-end;
+      justify-content:flex-start;
+      padding:26px;
+      z-index:2;
+      pointer-events:none;
+      background:linear-gradient(
+        to top,
+        rgba(7,10,18,.85),
+        rgba(7,10,18,.10)
+      );
     }
 
-    .hero-tag{
-      padding: 10px 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(7,10,18,.55);
-      backdrop-filter: blur(10px);
-      color: #A8B3D6;
-      font-size: 13px;
+    .hero-box{
+      max-width:720px;
+    }
+
+    .hero-title{
+      margin:0 0 8px;
+      font-size:44px;
+      letter-spacing:-1px;
+      line-height:1.05;
+      font-weight:900;
+      color:var(--text);
+    }
+
+    .hero-slogan{
+      margin:0;
+      font-size:18px;
+      font-weight:800;
+      color:var(--green);
+      letter-spacing:.3px;
+    }
+
+    /* ===== SECTION TEXTE ===== */
+    .grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:16px;
+      margin-top:18px;
+    }
+
+    .card{
+      border-radius:22px;
+      border:1px solid var(--line);
+      background:rgba(12,16,32,.55);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+
+    .card h2{
+      margin:0 0 10px;
+      font-size:18px;
+      color:var(--text);
+    }
+
+    .card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:14px;
     }
 
     /* mobile */
     @media (max-width: 900px){
       .dropdown:hover .dropdown-menu{display:none}
+      .hero-title{font-size:34px}
+      .hero-video video{max-height:340px}
+      .grid{grid-template-columns:1fr}
     }
-
-    /* JS dropdown for mobile */
-    .dropdown.open .dropdown-menu{display:block}
   </style>
 </head>
 
@@ -268,40 +280,43 @@
 
 <main>
   <div class="wrap">
-    <section class="hero">
+
+    <!-- HERO VIDEO -->
+    <section class="hero-video">
+      <video autoplay muted loop playsinline>
+        <source src="assets/hero.mp4" type="video/mp4">
+      </video>
+
+      <div class="hero-overlay">
+        <div class="hero-box">
+          <h1 class="hero-title">
+            <span class="g">F</span>iber
+            <span class="g">L</span>ink
+            <span class="g">T</span>echnology
+          </h1>
+          <p class="hero-slogan">Think Fast, Link Smart</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENU -->
+    <section class="grid">
+      <div class="card">
+        <h2>Solutions Fibre Optique & Réseaux</h2>
+        <p>
+          Fiberlink Technology accompagne les entreprises et les projets d’infrastructure
+          avec une approche moderne : précision, performance et fiabilité.
+        </p>
+      </div>
 
       <div class="card">
-        <h1 class="brand-title">
-          <span class="g">F</span>iber
-          <span class="g">L</span>ink
-          <span class="g">T</span>echnology
-        </h1>
-
-        <p class="slogan">Think Fast, Link Smart</p>
-
-        <p class="lead">
-          Spécialiste des solutions réseau et fibre optique.
-          Un site moderne, rapide et professionnel — prêt à évoluer.
+        <h2>Domaines</h2>
+        <p>
+          FTTH • FTTO • FTTE • Réseaux • Maintenance • Déploiement
         </p>
-
-        <div class="btns">
-          <a class="btn primary" href="histoire.html">Découvrir l’entreprise</a>
-          <a class="btn" href="partenaires.html">Voir nos partenaires</a>
-        </div>
       </div>
-
-      <!-- VIDEO -->
-      <div class="card hero-video">
-        <video autoplay muted loop playsinline>
-          <source src="assets/hero.mp4" type="video/mp4">
-        </video>
-
-        <div class="hero-overlay">
-          <div class="hero-tag">Animation vidéo • Style futuriste</div>
-        </div>
-      </div>
-
     </section>
+
   </div>
 </main>
 
