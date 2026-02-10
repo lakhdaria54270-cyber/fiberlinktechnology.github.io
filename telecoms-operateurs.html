@@ -1,1 +1,393 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Télécoms & Opérateurs — Fiberlink Technology</title>
+  <meta name="description" content="Télécoms & Opérateurs — Déploiement, maintenance et dépannage fibre FTTH, FTTO, FTTE avec mesures réflecto et bilan optique final." />
 
+  <style>
+    :root{
+      --bg:#070A12;
+      --panel:#0C1020;
+      --text:#EAF0FF;
+      --muted:#A8B3D6;
+      --line:rgba(255,255,255,.08);
+      --shadow:0 24px 60px rgba(0,0,0,.45);
+      --r:22px;
+      --green:#35ff7a;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      background:var(--bg);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(14px);
+      background:rgba(7,10,18,.65);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
+
+    .brand{display:flex;align-items:center;gap:12px;min-width:260px}
+    .logo{
+      width:40px;height:40px;border-radius:14px;
+      background:linear-gradient(135deg, rgba(125,211,252,1), rgba(167,139,250,1));
+      box-shadow:0 18px 40px rgba(125,211,252,.15);
+      flex:0 0 auto;
+    }
+    .brand-name{font-size:14px;font-weight:800;line-height:1.1;margin:0}
+    .brand-sub{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+    .g{color:var(--green);font-weight:900}
+
+    .menu{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .menu > a,
+    .menu > .dropdown > button{
+      height:42px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:13px;
+      color:var(--muted);
+      padding:0 12px;
+      border-radius:14px;
+      border:1px solid transparent;
+      background:transparent;
+      cursor:pointer;
+      line-height:1;
+    }
+    .menu > a:hover,
+    .menu > .dropdown > button:hover{
+      color:var(--text);
+      border-color:var(--line);
+      background:rgba(255,255,255,.03);
+    }
+
+    /* ===== DROPDOWN ===== */
+    .dropdown{position:relative}
+    .caret{opacity:.75}
+    .dropdown-menu{
+      position:absolute;
+      top:46px;
+      left:0;
+      min-width:240px;
+      background:rgba(12,16,32,.95);
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      padding:8px;
+      display:none;
+    }
+    .dropdown-menu a{
+      display:block;
+      padding:12px 12px;
+      border-radius:14px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .dropdown-menu a:hover{
+      color:var(--text);
+      background:rgba(255,255,255,.04)
+    }
+    .dropdown:hover .dropdown-menu{display:block}
+    .dropdown.open .dropdown-menu{display:block}
+
+    main{padding:40px 0 60px}
+
+    .card{
+      border-radius:var(--r);
+      border:1px solid var(--line);
+      background:rgba(12,16,32,.55);
+      box-shadow:var(--shadow);
+      padding:28px;
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size:40px;
+      letter-spacing:-.8px;
+      line-height:1.05;
+    }
+
+    .lead{
+      color:var(--muted);
+      line-height:1.7;
+      font-size:16px;
+      margin:0 0 0;
+    }
+
+    /* ===== LAYOUT ARTICLE + IMAGE ===== */
+    .service-layout{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      margin-top:18px;
+      align-items:start;
+    }
+
+    article{
+      color:var(--muted);
+      line-height:1.85;
+      font-size:15px;
+    }
+    article h2{
+      color:var(--text);
+      margin:18px 0 10px;
+      font-size:18px;
+    }
+    article p{margin:0 0 14px}
+
+    .service-image{
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 24px 60px rgba(0,0,0,.45);
+      background:#000;
+      position:sticky;
+      top:110px;
+    }
+    .service-image img{
+      width:100%;
+      height:520px;
+      object-fit:cover;
+      display:block;
+      opacity:.92;
+    }
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+      margin-top:14px;
+    }
+    .mini{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.02);
+      padding:14px;
+    }
+    .mini strong{color:var(--text)}
+
+    .badge{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.02);
+      color:var(--muted);
+      font-size:13px;
+      margin-top:14px;
+    }
+
+    @media (max-width: 900px){
+      .dropdown:hover .dropdown-menu{display:none}
+      .service-layout{grid-template-columns:1fr}
+      .service-image{position:relative;top:auto}
+      .service-image img{height:260px}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="nav">
+
+      <a class="brand" href="index.html">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="brand-name">
+            <span class="g">F</span>iber
+            <span class="g">L</span>ink
+            <span class="g">T</span>echnology
+          </div>
+          <span class="brand-sub">Réseaux • Fibre optique • Technologies</span>
+        </div>
+      </a>
+
+      <nav class="menu" aria-label="Menu">
+
+        <!-- NOUS CONNAÎTRE -->
+        <div class="dropdown" id="dropAbout">
+          <button type="button" aria-haspopup="true" aria-expanded="false">
+            Nous connaître <span class="caret">▾</span>
+          </button>
+          <div class="dropdown-menu" role="menu">
+            <a href="histoire.html">Notre histoire</a>
+            <a href="partenaires.html">Nos partenaires</a>
+          </div>
+        </div>
+
+        <!-- SERVICES -->
+        <div class="dropdown" id="dropServices">
+          <button type="button" aria-haspopup="true" aria-expanded="false">
+            Service <span class="caret">▾</span>
+          </button>
+          <div class="dropdown-menu" role="menu">
+            <a href="depannage.html">Dépannage</a>
+            <a href="maintenance.html">Maintenance</a>
+          </div>
+        </div>
+
+        <!-- SECTEUR D’ACTIVITÉ -->
+        <div class="dropdown" id="dropSectors">
+          <button type="button" aria-haspopup="true" aria-expanded="false">
+            Secteur d’activité <span class="caret">▾</span>
+          </button>
+          <div class="dropdown-menu" role="menu">
+            <a href="Telecoms & Operateurs.html">Télécoms & Opérateurs</a>
+          </div>
+        </div>
+
+        <a href="#">Nos réalisations</a>
+      </nav>
+
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="card">
+      <h1>Télécoms & Opérateurs</h1>
+      <p class="lead">
+        Déploiement, dépannage et maintenance fibre avec une exigence opérateur :
+        précision terrain, traçabilité, mesures et bilan optique final.
+      </p>
+
+      <div class="service-layout">
+
+        <!-- ARTICLE À GAUCHE -->
+        <article>
+
+          <h2>La fibre au niveau opérateur : fiable, propre, durable</h2>
+          <p>
+            Dans l’univers des opérateurs et des infrastructures télécoms, la fibre ne se limite pas à “tirer un câble”.
+            Chaque intervention doit être pensée pour durer, être exploitable dans le temps, et rester lisible pour
+            toutes les équipes qui interviendront après.
+          </p>
+
+          <p>
+            Chez <strong>Fiberlink Technology</strong>, nous appliquons une méthodologie rigoureuse, inspirée des standards
+            opérateurs : qualité d’exécution, propreté, et validation technique complète.
+          </p>
+
+          <h2>Notre procédure terrain : une méthode claire et maîtrisée</h2>
+          <p>
+            Avant toute intervention, nous réalisons une <strong>visite chantier</strong> (ou une analyse technique)
+            afin d’anticiper les contraintes : accès, cheminements, chambres, poteaux, boîtiers existants,
+            coactivité, zones sensibles et points critiques.
+          </p>
+
+          <p>
+            Ensuite, nos équipes interviennent avec une exécution structurée :
+          </p>
+
+          <div class="mini-grid">
+            <div class="mini">
+              <strong>📍 Repérage & préparation</strong><br>
+              Validation des points PM / PBO, cheminements, réserves, et zones à risque.
+            </div>
+            <div class="mini">
+              <strong>🧵 Tirage de câble</strong><br>
+              Respect des contraintes mécaniques (traction, rayons, protections, fixation).
+            </div>
+            <div class="mini">
+              <strong>📦 Installation de boîtiers</strong><br>
+              Pose et organisation de tous types de boîtiers : distribution, épissurage, tiroirs, ODF.
+            </div>
+            <div class="mini">
+              <strong>🔥 Soudures & finalisation</strong><br>
+              Soudures propres, organisation interne, gestion des courbes, et finition impeccable.
+            </div>
+          </div>
+
+          <h2>Mesures réflecto, traitement des courbes & bilan optique final</h2>
+          <p>
+            Un travail fibre professionnel ne se valide pas “à l’œil”.
+            Nous terminons nos interventions par des contrôles complets :
+            <strong>mesures réflectométriques (OTDR)</strong>, analyse des pertes, traitement des courbes,
+            et validation du réseau avant remise en service.
+          </p>
+
+          <p>
+            L’objectif est simple : livrer une infrastructure <strong>stable</strong>, <strong>performante</strong>,
+            et surtout <strong>durable</strong>.
+          </p>
+
+          <h2>Sécurité chantier : une priorité absolue</h2>
+          <p>
+            Sur les chantiers télécoms, la sécurité est un point non négociable :
+            interventions en extérieur, zones publiques, circulation, hauteur, coactivité.
+            Nos équipes travaillent avec des procédures strictes : balisage, EPI, prévention,
+            et respect des règles de site.
+          </p>
+
+          <div class="badge">
+            <span class="g">✔</span>
+            Exécution propre • Mesures • Traçabilité • Sécurité chantier
+          </div>
+
+        </article>
+
+        <!-- PHOTO À DROITE -->
+        <aside class="service-image">
+          <!-- IMPORTANT : change .jpg en .png si ton fichier est en png -->
+          <img src="assets/telecoms.jpg" alt="Télécoms et opérateurs - Fiberlink Technology">
+        </aside>
+
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<script>
+  function initDropdown(id){
+    const drop = document.getElementById(id);
+    const btn = drop.querySelector("button");
+
+    btn.addEventListener("click", () => {
+      const isOpen = drop.classList.toggle("open");
+      btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    document.addEventListener("click", (e) => {
+      if(!drop.contains(e.target)){
+        drop.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  initDropdown("dropAbout");
+  initDropdown("dropServices");
+  initDropdown("dropSectors");
+</script>
+
+</body>
+</html>
