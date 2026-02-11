@@ -108,7 +108,7 @@
       background:rgba(255,255,255,.03);
     }
 
-    /* ===== DROPDOWN ===== */
+    /* dropdown uniquement pour About + Services */
     .dropdown{position:relative}
     .caret{opacity:.75}
 
@@ -116,7 +116,7 @@
       position:absolute;
       top:46px;
       left:0;
-      min-width:320px;
+      min-width:220px;
       background:rgba(12,16,32,.95);
       border:1px solid var(--line);
       border-radius:18px;
@@ -131,7 +131,6 @@
       border-radius:14px;
       color:var(--muted);
       font-size:13px;
-      line-height:1.2;
     }
 
     .dropdown-menu a:hover{
@@ -144,7 +143,6 @@
 
     main{padding:38px 0 70px}
 
-    /* ===== HERO SECTOR ===== */
     .sector-hero{
       border-radius:22px;
       border:1px solid var(--line);
@@ -171,7 +169,6 @@
       max-width:900px;
     }
 
-    /* ===== ARTICLE LAYOUT ===== */
     .sector-grid{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
@@ -305,7 +302,6 @@
 
       <nav class="menu" aria-label="Menu">
 
-        <!-- NOUS CONNAÎTRE -->
         <div class="dropdown" id="dropAbout">
           <button type="button" aria-haspopup="true" aria-expanded="false">
             Nous connaître <span class="caret">▾</span>
@@ -316,7 +312,6 @@
           </div>
         </div>
 
-        <!-- SERVICES -->
         <div class="dropdown" id="dropServices">
           <button type="button" aria-haspopup="true" aria-expanded="false">
             Service <span class="caret">▾</span>
@@ -327,24 +322,7 @@
           </div>
         </div>
 
-        <!-- SECTEUR D’ACTIVITÉ -->
-        <div class="dropdown" id="dropSectors">
-          <button type="button" aria-haspopup="true" aria-expanded="false">
-            Secteur d’activité <span class="caret">▾</span>
-          </button>
-
-          <div class="dropdown-menu" role="menu">
-            <a href="telecoms-operateurs.html">Télécoms & Opérateurs</a>
-            <a href="entreprises-ftto-ftte.html">Entreprises / FTTO - FTTE</a>
-            <a href="residentiel-ftth.html">Résidentiel / FTTH</a>
-            <a href="reseaux-rip.html">Collectivités & Réseaux Publics (RIP)</a>
-            <a href="industrie-sites-sensibles.html">Industrie & Sites sensibles</a>
-            <a href="tertiaire-bureaux-hotels-hopitaux.html">Tertiaire (bureaux, hôtels, hôpitaux…)</a>
-            <a href="data-centers.html">Data Centers & Infrastructures critiques</a>
-            <a href="smart-city-iot.html">Smart City & IoT</a>
-            <a href="reseaux-prive-lan.html">Réseaux privés LAN/WAN multi-sites</a>
-          </div>
-        </div>
+        <a href="secteurs.html">Secteur d’activité</a>
 
         <a href="#">Nos réalisations</a>
       </nav>
@@ -360,7 +338,7 @@
       <p>
         Les réseaux d’initiative publique (RIP) demandent une exécution rigoureuse,
         une conformité totale et une qualité constante sur de grands volumes.
-        Fiberlink Technology accompagne les collectivités et opérateurs RIP
+        Fiberlink Technology accompagne collectivités et opérateurs RIP
         sur le déploiement, l’extension et la maintenance des infrastructures fibre.
       </p>
     </section>
@@ -380,23 +358,31 @@
         </p>
 
         <p>
-          Nos équipes réalisent le <strong>tirage de câble</strong> (aérien et souterrain),
-          la pose et le raccordement des infrastructures (PM, armoires, boîtiers,
-          tiroirs optiques), ainsi que la <strong>gestion des soudures</strong>
-          avec un repérage précis.
+          Nos équipes réalisent la <strong>visite chantier</strong>, la préparation des accès,
+          puis le <strong>tirage de câble</strong> (aérien et souterrain),
+          l’installation de boîtiers et d’équipements (PM, armoires, tiroirs optiques,
+          PBO, boîtiers de raccordement).
         </p>
 
         <p>
-          Chaque intervention est validée par des <strong>mesures OTDR</strong>,
-          l’analyse des courbes, la détection de pertes, et la production
-          du <strong>bilan optique final</strong>.
-          Cette approche garantit un réseau fiable et conforme aux attentes.
+          Les <strong>soudures</strong> sont effectuées avec rigueur : repérage, protection,
+          rangement des fibres, et finalisation très propre.
+          Chaque étape est suivie d’un contrôle visuel et d’un contrôle technique.
         </p>
 
         <p>
-          Enfin, sur ce type de chantiers, la <strong>sécurité</strong> et le respect des
-          procédures (balisage, circulation, EPI, prévention) sont indispensables.
-          Notre objectif : livrer un réseau <strong>propre, conforme et exploitable immédiatement</strong>.
+          Nous validons ensuite les interventions avec des <strong>mesures OTDR</strong>,
+          le <strong>traitement des courbes</strong>, la détection des pertes,
+          et la production du <strong>bilan optique final</strong>.
+          Cette méthode garantit un réseau fiable, conforme et exploitable immédiatement.
+        </p>
+
+        <p>
+          Enfin, sur ce type de chantiers, la <strong>sécurité</strong> est une priorité :
+          balisage, circulation, travaux en hauteur, EPI, prévention,
+          respect des règles d’intervention en zone publique.
+          Pour Fiberlink Technology, un chantier réussi est un chantier
+          <strong>propre, sécurisé et conforme</strong>.
         </p>
 
         <div class="chips">
@@ -448,7 +434,6 @@
 
   initDropdown("dropAbout");
   initDropdown("dropServices");
-  initDropdown("dropSectors");
 </script>
 
 </body>
