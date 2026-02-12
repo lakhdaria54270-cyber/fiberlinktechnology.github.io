@@ -1,1 +1,516 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Formations — Fiberlink Technology</title>
+  <meta name="description" content="Formations Fibre Optique Fiberlink Technology : D1, D2, FTTH, FTTO, FTTE, OTDR, mesures et sécurité chantier." />
 
+  <style>
+    :root{
+      --bg:#070A12;
+      --panel:#0C1020;
+      --text:#EAF0FF;
+      --muted:#A8B3D6;
+      --line:rgba(255,255,255,.08);
+      --shadow:0 24px 60px rgba(0,0,0,.45);
+      --r:22px;
+      --green:#35ff7a;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      background:var(--bg);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(14px);
+      background:rgba(7,10,18,.65);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:260px;
+    }
+
+    .logo{
+      width:40px;
+      height:40px;
+      border-radius:14px;
+      background:linear-gradient(135deg, rgba(125,211,252,1), rgba(167,139,250,1));
+      box-shadow:0 18px 40px rgba(125,211,252,.15);
+      flex:0 0 auto;
+    }
+
+    .brand-name{
+      font-size:14px;
+      font-weight:800;
+      line-height:1.1;
+      margin:0;
+    }
+
+    .brand-sub{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin-top:2px;
+    }
+
+    .g{color:var(--green);font-weight:900}
+
+    .menu{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .menu > a,
+    .menu > .dropdown > button{
+      height:42px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:13px;
+      color:var(--muted);
+      padding:0 12px;
+      border-radius:14px;
+      border:1px solid transparent;
+      background:transparent;
+      cursor:pointer;
+      line-height:1;
+    }
+
+    .menu > a:hover,
+    .menu > .dropdown > button:hover{
+      color:var(--text);
+      border-color:var(--line);
+      background:rgba(255,255,255,.03);
+    }
+
+    /* ===== DROPDOWN ===== */
+    .dropdown{position:relative}
+    .caret{opacity:.75}
+
+    .dropdown-menu{
+      position:absolute;
+      top:46px;
+      left:0;
+      min-width:220px;
+      background:rgba(12,16,32,.95);
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      padding:8px;
+      display:none;
+    }
+
+    .dropdown-menu a{
+      display:block;
+      padding:12px 12px;
+      border-radius:14px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .dropdown-menu a:hover{
+      color:var(--text);
+      background:rgba(255,255,255,.04);
+    }
+
+    .dropdown:hover .dropdown-menu{display:block}
+    .dropdown.open .dropdown-menu{display:block}
+
+    main{padding:38px 0 70px}
+
+    .hero{
+      border-radius:22px;
+      border:1px solid var(--line);
+      background:rgba(12,16,32,.55);
+      box-shadow:var(--shadow);
+      padding:26px;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .hero h1{
+      margin:0 0 10px;
+      font-size:34px;
+      letter-spacing:-1px;
+      line-height:1.05;
+      font-weight:900;
+    }
+
+    .hero p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:14px;
+      max-width:900px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-top:18px;
+    }
+
+    .card{
+      border-radius:22px;
+      border:1px solid var(--line);
+      background:rgba(12,16,32,.55);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+
+    .card h2{
+      margin:0 0 10px;
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:-.3px;
+    }
+
+    .card p{
+      margin:0 0 14px;
+      color:var(--muted);
+      line-height:1.85;
+      font-size:14px;
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .chip{
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      font-size:12px;
+      font-weight:800;
+    }
+
+    .chip .dot{
+      display:inline-block;
+      width:8px;
+      height:8px;
+      border-radius:99px;
+      background:var(--green);
+      margin-right:8px;
+      box-shadow:0 0 20px rgba(53,255,122,.25);
+    }
+
+    .big-card{margin-top:16px}
+
+    .list{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      line-height:1.85;
+      font-size:14px;
+    }
+
+    .cta{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:16px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      height:46px;
+      padding:0 16px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:900;
+      font-size:13px;
+      box-shadow:var(--shadow);
+      cursor:pointer;
+      transition:.18s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.06);
+      border-color:rgba(255,255,255,.14);
+    }
+
+    .btn.primary{
+      border:none;
+      background:linear-gradient(135deg, rgba(53,255,122,.95), rgba(125,211,252,.95));
+      color:#071015;
+      box-shadow:0 24px 60px rgba(53,255,122,.12);
+    }
+
+    .btn.primary:hover{
+      transform:translateY(-1px);
+      filter:brightness(1.05);
+    }
+
+    .note{
+      margin-top:14px;
+      padding:14px 16px;
+      border-radius:18px;
+      border:1px solid rgba(53,255,122,.22);
+      background:rgba(53,255,122,.06);
+      color:var(--text);
+      font-size:13px;
+      line-height:1.7;
+      font-weight:800;
+    }
+
+    .back{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-top:18px;
+      color:var(--muted);
+      font-weight:800;
+      font-size:13px;
+    }
+    .back:hover{color:var(--text)}
+
+    @media (max-width: 900px){
+      .dropdown:hover .dropdown-menu{display:none}
+      .hero h1{font-size:28px}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="nav">
+      <a class="brand" href="index.html">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="brand-name">
+            <span class="g">F</span>iber
+            <span class="g">L</span>ink
+            <span class="g">T</span>echnology
+          </div>
+          <span class="brand-sub">Réseaux • Fibre optique • Technologies</span>
+        </div>
+      </a>
+
+      <nav class="menu" aria-label="Menu">
+
+        <div class="dropdown" id="dropAbout">
+          <button type="button" aria-haspopup="true" aria-expanded="false">
+            Nous connaître <span class="caret">▾</span>
+          </button>
+          <div class="dropdown-menu" role="menu">
+            <a href="histoire.html">Notre histoire</a>
+            <a href="partenaires.html">Nos partenaires</a>
+          </div>
+        </div>
+
+        <div class="dropdown" id="dropServices">
+          <button type="button" aria-haspopup="true" aria-expanded="false">
+            Service <span class="caret">▾</span>
+          </button>
+          <div class="dropdown-menu" role="menu">
+            <a href="depannage.html">Dépannage</a>
+            <a href="maintenance.html">Maintenance</a>
+          </div>
+        </div>
+
+        <a href="secteurs.html">Secteur d’activité</a>
+        <a href="#">Nos réalisations</a>
+        <a href="formations.html">Formations</a>
+        <a href="zones-intervention.html">Zones d’intervention</a>
+        <a href="contact.html">Nous contacter</a>
+
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="hero">
+      <h1>Formations FTTH • FTTO • FTTE</h1>
+      <p>
+        Chez Fiberlink Technology, nous formons des techniciens capables d’intervenir
+        sur l’ensemble des réseaux fibre : <b>FTTH</b> (abonnés), <b>FTTO</b> (entreprises),
+        <b>FTTE</b> (bâtiments / tertiaire / sites complexes).
+        L’objectif est simple : <b>qualité terrain, conformité opérateur, et sécurité chantier</b>.
+      </p>
+
+      <a class="back" href="index.html">← Retour à l’accueil</a>
+    </section>
+
+    <!-- D1 / D2 -->
+    <section class="grid">
+
+      <div class="card">
+        <h2>Domaine D1 — Transport / Distribution</h2>
+        <p>
+          Le domaine <b>D1</b> correspond aux travaux réalisés sur les parties amont du réseau :
+          transport, distribution, PM, armoires, boîtiers d’épissurage, et liaisons structurantes.
+          C’est le domaine où la qualité de soudure, l’organisation et les mesures OTDR sont
+          indispensables.
+        </p>
+
+        <div class="chips">
+          <div class="chip"><span class="dot"></span>Boîtiers & PM</div>
+          <div class="chip"><span class="dot"></span>Soudures fusion</div>
+          <div class="chip"><span class="dot"></span>OTDR / réflecto</div>
+          <div class="chip"><span class="dot"></span>Bilans optiques</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Domaine D2 — Raccordement Abonné (FTTH)</h2>
+        <p>
+          Le domaine <b>D2</b> concerne la partie finale : raccordement client, PTO,
+          intervention PBO, reprise PM, tests, mise en service, SAV et dépannage.
+          Ici, la priorité est une finalisation propre, rapide et conforme.
+        </p>
+
+        <div class="chips">
+          <div class="chip"><span class="dot"></span>PBO / PM</div>
+          <div class="chip"><span class="dot"></span>PTO / DTIo</div>
+          <div class="chip"><span class="dot"></span>Validation client</div>
+          <div class="chip"><span class="dot"></span>SAV / dépannage</div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- OTDR -->
+    <section class="card big-card">
+      <h2>Module Mesures — Réflectomètre (OTDR) & Qualification</h2>
+
+      <p>
+        Nous proposons un module complet dédié à la mesure fibre, au diagnostic et à la recette.
+        Le réflectomètre (OTDR) est un outil clé pour garantir un réseau fiable, conforme,
+        et pour localiser précisément un défaut.
+      </p>
+
+      <ul class="list">
+        <li>Comprendre une courbe OTDR (événements, pertes, réflexion)</li>
+        <li>Détection : macro-courbure, micro-courbure, connecteur sale, soudure défectueuse</li>
+        <li>Localisation exacte d’un incident (distance, point de rupture, point de perte)</li>
+        <li>Traitement des courbes + rapports de mesure</li>
+        <li>Photométrie (power meter) + validation des seuils</li>
+        <li>Bilan optique final : atténuation réelle vs théorique</li>
+      </ul>
+
+      <div class="note">
+        ✅ Notre approche : former des techniciens capables de diagnostiquer vite,
+        corriger proprement, et livrer un réseau conforme du premier coup.
+      </div>
+    </section>
+
+    <!-- PROCESS TERRAIN -->
+    <section class="card big-card">
+      <h2>Procédure terrain — de la visite chantier à la finalisation premium</h2>
+
+      <p>
+        Nos formations s’appuient sur une méthode de travail identique à nos chantiers réels.
+        Chaque stagiaire apprend à intervenir avec organisation, sécurité et précision.
+      </p>
+
+      <ul class="list">
+        <li><b>Visite chantier</b> : repérage, accès, contraintes, cheminement, sécurité</li>
+        <li><b>Tirage de câble</b> : conduites, aiguillage, chambres, aérien, façade</li>
+        <li><b>Installation boîtiers</b> : PBO, PM, boîtiers étanches, tiroirs, ODF</li>
+        <li><b>Soudures</b> : préparation, clivage, protection, rangement fibre</li>
+        <li><b>Finalisation propre</b> : repérage, organisation, nettoyage, conformité</li>
+        <li><b>Mesures réflecto</b> : contrôle courbes, traitement, bilan optique final</li>
+      </ul>
+    </section>
+
+    <!-- SECURITE -->
+    <section class="card big-card">
+      <h2>Sécurité chantier : une priorité absolue</h2>
+
+      <p>
+        La sécurité est au cœur de notre culture d’entreprise.
+        Nous formons systématiquement aux bonnes pratiques QHSE afin d’intervenir
+        sur chantier de manière responsable, professionnelle et conforme.
+      </p>
+
+      <ul class="list">
+        <li>Port des EPI (casque, gants, lunettes, harnais, chaussures)</li>
+        <li>Balisage zone de travail (public, circulation, accès)</li>
+        <li>Travail en hauteur : poteaux, nacelles, échelles</li>
+        <li>Intervention en chambres télécom : risques, ventilation, procédures</li>
+        <li>Respect des règles opérateurs et des consignes chantier</li>
+      </ul>
+
+      <div class="note">
+        🔥 Chez Fiberlink Technology : un chantier propre et sécurisé = un chantier réussi.
+      </div>
+
+      <div class="cta">
+        <a class="btn primary" href="contact.html">Demander une formation</a>
+        <a class="btn" href="mailto:contact@fiberlinktechnology.fr">contact@fiberlinktechnology.fr</a>
+        <a class="btn" href="tel:+33766660585">+33 07 66 66 05 85</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<script>
+  function initDropdown(id){
+    const drop = document.getElementById(id);
+    if(!drop) return;
+
+    const btn = drop.querySelector("button");
+
+    btn.addEventListener("click", () => {
+      const isOpen = drop.classList.toggle("open");
+      btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    document.addEventListener("click", (e) => {
+      if(!drop.contains(e.target)){
+        drop.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  initDropdown("dropAbout");
+  initDropdown("dropServices");
+</script>
+
+</body>
+</html>
